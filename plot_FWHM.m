@@ -70,7 +70,7 @@ if detection_algorithm == 0
     x = linspace(0,1*size(profile,1),size(profile,1));
     for i = 1:End
         xq = linspace(1,1*size(profile,1),1000);
-        y = interp1(x',profile(:,i),xq','spline');
+        y = interp1(x',profile(:,i),xq','linear'); %could use spline, linear is simple.
         FWHM(i) = fwhm(xq,y);   % <- MATLAB file exchange   
     end
     diameter = microns_per_pixel*FWHM;
